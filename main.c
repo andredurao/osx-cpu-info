@@ -1,0 +1,72 @@
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void usage()
+{
+  printf("Usage: osx-cpu [-c] [-b] [-h] [-y] [-t] [-p] [-f[n=0]]\n");
+  printf("       -c [C]PU\n");
+  printf("       -b [B]attery temperature\n");
+  printf("       -h Battery [H]ealth\n");
+  printf("       -c Battery c[Y]cle count\n");
+  printf("       -t Battery [T]ime remaining\n");
+  printf("       -p Battery charge [P]ercentage\n");
+  printf("       -f [F]an speed (default fan = 0)\n");
+}
+
+int main(int argc, char *argv[])
+{
+  int cpuTemperatureFlag       = 0;
+  int batteryTemperatureFlag   = 0;
+  int batteryHealthFlag        = 0;
+  int batteryCycleCountFlag    = 0;
+  int batteryTimeRemainingFlag = 0;
+  int batteryChargeFlag        = 0;
+  int fanSpeedFlag             = 0;
+  char *fanSpeedValue          = NULL;
+  int c;
+
+  while ((c = getopt (argc, argv, "cbhytp")) != -1)
+    switch (c)
+    {
+      case 'c':
+        cpuTemperatureFlag = 1;
+        break;
+      case 'b':
+        batteryTemperatureFlag = 1;
+        break;
+      case 'h':
+        batteryHealthFlag = 1;
+        break;
+      case 'y':
+        batteryCycleCountFlag = 1;
+        break;
+      case 't':
+        batteryTimeRemainingFlag = 1;
+        break;
+      case 'p':
+        batteryChargeFlag = 1;
+        break;
+      case 'f':
+        fanSpeedFlag = 1;
+        break;
+      case '?':
+        usage();
+        return 1;
+      default:
+        usage();
+    }
+
+
+
+  printf("%d\n", cpuTemperatureFlag);
+  printf("%d\n", batteryTemperatureFlag);
+  printf("%d\n", batteryHealthFlag);
+  printf("%d\n", batteryCycleCountFlag);
+  printf("%d\n", batteryTimeRemainingFlag);
+  printf("%d\n", batteryChargeFlag);
+  printf("%d\n", fanSpeedFlag);
+  return 0;
+
+}
