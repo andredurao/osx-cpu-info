@@ -321,24 +321,24 @@ int getBatteryCharge() {
  * TODO:  Write a XCode project for this program
  * FIXME: Fix all warnings
  */
-int main(int argc, char *argv[])
-{
-    SMCOpen();
-    int i = 0, fans = SMCGetFanNumber(SMC_KEY_FAN_NUM);
-    float bat_temp = SMCGetTemperature(SMC_KEY_BATTERY_TEMP);
-    printf("CPU\t%0.1f\t°C\n", SMCGetTemperature(SMC_KEY_CPU_TEMP));
-    printf("FAN_NUM\t%i\n", fans);
-    for (i = 0; i < fans; i++)
-        printf ("FAN_%i\t%0.1f\tRPM\n", i, SMCGetFanSpeed(i));
-    SMCClose();
-
-    printf ("HasBatt\t%i\n", hasBattery());
-    printf ("Battery\t%0.1f\t°C\n", bat_temp);
-    printf ("Health\t%s\n", getBatteryHealth());
-    printf ("DCycle\t%i\n", getDesignCycleCount());
-    printf ("Remain\t%0.0f\tmAh\n", IOPSGetTimeRemainingEstimate());
-    printf ("Charge\t%i\t%%\n", getBatteryCharge());
-
-    return 0;
-}
+//int main(int argc, char *argv[])
+//{
+//    SMCOpen();
+//    int i = 0, fans = SMCGetFanNumber(SMC_KEY_FAN_NUM);
+//    float bat_temp = SMCGetTemperature(SMC_KEY_BATTERY_TEMP);
+//    printf("CPU\t%0.1f\t°C\n", SMCGetTemperature(SMC_KEY_CPU_TEMP));
+//    printf("FAN_NUM\t%i\n", fans);
+//    for (i = 0; i < fans; i++)
+//        printf ("FAN_%i\t%0.1f\tRPM\n", i, SMCGetFanSpeed(i));
+//    SMCClose();
+//
+//    printf ("HasBatt\t%i\n", hasBattery());
+//    printf ("Battery\t%0.1f\t°C\n", bat_temp);
+//    printf ("Health\t%s\n", getBatteryHealth());
+//    printf ("DCycle\t%i\n", getDesignCycleCount());
+//    printf ("Remain\t%0.0f\tmAh\n", IOPSGetTimeRemainingEstimate());
+//    printf ("Charge\t%i\t%%\n", getBatteryCharge());
+//
+//    return 0;
+//}
 
