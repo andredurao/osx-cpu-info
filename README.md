@@ -6,4 +6,5 @@ Based on [https://github.com/Chris911/iStats]
 
 ```
 cc osx-cpu-info.c -o osx-cpu-info -framework IOKit -framework CoreFoundation -Wall
+gcc main.c -o main -framework IOKit -framework CoreFoundation -Wall
 ```

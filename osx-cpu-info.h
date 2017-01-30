@@ -101,3 +101,5 @@ CFTypeRef IOPSCopyPowerSourcesInfo(void);
 CFArrayRef IOPSCopyPowerSourcesList(CFTypeRef blob);
 CFDictionaryRef IOPSGetPowerSourceDescription(CFTypeRef blob, CFTypeRef ps);
 
+// formatted string functions
+char* getCPUTemperature();

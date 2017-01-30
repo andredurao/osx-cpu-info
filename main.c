@@ -13,6 +13,7 @@ int batteryTimeRemainingFlag = 0;
 int batteryChargeFlag        = 0;
 int fanSpeedFlag             = 0;
 char *fanSpeedValue          = NULL;
+char *infoString;
 
 void usage()
 {
@@ -20,7 +21,7 @@ void usage()
   printf("\t\t-c [C]PU\n");
   printf("\t\t-b [B]attery temperature\n");
   printf("\t\t-h Battery [H]ealth\n");
-  printf("\t\t-c Battery c[Y]cle count\n");
+  printf("\t\t-y Battery c[Y]cle count\n");
   printf("\t\t-t Battery [T]ime remaining\n");
   printf("\t\t-p Battery charge [P]ercentage\n");
   printf("\t\t-f [F]an speed (default fan = 0)\n");
@@ -40,15 +41,20 @@ void debug()
 int main(int argc, char *argv[])
 {
   int c;
+  SMCOpen();
 
   if(argc == 1)
+  {
     usage();
+    return(0);
+  }
 
   while ((c = getopt (argc, argv, "cbhytp")) != -1)
     switch (c)
     {
       case 'c':
         cpuTemperatureFlag = 1;
+        printf("%s", getCPUTemperature());
         break;
       case 'b':
         batteryTemperatureFlag = 1;
@@ -74,6 +80,7 @@ int main(int argc, char *argv[])
       default:
         usage();
     }
+  SMCClose();
 
   return 0;
 }
