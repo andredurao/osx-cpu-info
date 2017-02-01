@@ -13,7 +13,7 @@ int batteryTimeRemainingFlag = 0;
 int batteryChargeFlag        = 0;
 int fanSpeedFlag             = 0;
 char *fanSpeedValue          = NULL;
-char *infoString;
+char infoString[255];
 
 void usage()
 {
@@ -41,6 +41,7 @@ void debug()
 int main(int argc, char *argv[])
 {
   int c;
+  char infoString = "";
   SMCOpen();
 
   if(argc == 1)
