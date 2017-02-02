@@ -13,7 +13,7 @@ int batteryTimeRemainingFlag = 0;
 int batteryChargeFlag        = 0;
 int fanSpeedFlag             = 0;
 char *fanSpeedValue          = NULL;
-char infoString[255];
+char *infoString;
 
 void usage()
 {
@@ -41,7 +41,7 @@ void debug()
 int main(int argc, char *argv[])
 {
   int c;
-  char infoString = "";
+  infoString = ((char*) malloc(255*sizeof(char)));
   SMCOpen();
 
   if(argc == 1)
@@ -55,7 +55,8 @@ int main(int argc, char *argv[])
     {
       case 'c':
         cpuTemperatureFlag = 1;
-        printf("%s", getCPUTemperature());
+        strncat(infoString, getCPUTemperature(), strlen(getCPUTemperature()));
+        printf("%s", infoString);
         break;
       case 'b':
         batteryTemperatureFlag = 1;
