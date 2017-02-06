@@ -14,6 +14,7 @@ int batteryChargeFlag        = 0;
 int fanSpeedFlag             = 0;
 char *fanSpeedValue          = NULL;
 char *infoString;
+float bat_temp;
 
 void usage()
 {
@@ -56,10 +57,10 @@ int main(int argc, char *argv[])
       case 'c':
         cpuTemperatureFlag = 1;
         strncat(infoString, getCPUTemperature(), strlen(getCPUTemperature()));
-        printf("%s", infoString);
         break;
       case 'b':
         batteryTemperatureFlag = 1;
+        strncat(infoString, getBatteryTemperature(), strlen(getBatteryTemperature()));
         break;
       case 'h':
         batteryHealthFlag = 1;
@@ -83,6 +84,7 @@ int main(int argc, char *argv[])
         usage();
     }
   SMCClose();
+  printf("%s", infoString);
 
   return 0;
 }

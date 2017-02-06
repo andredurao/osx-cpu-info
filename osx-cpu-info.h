@@ -103,3 +103,4 @@ CFDictionaryRef IOPSGetPowerSourceDescription(CFTypeRef blob, CFTypeRef ps);
 
 // formatted string functions
 char* getCPUTemperature();
+char* getBatteryTemperature();

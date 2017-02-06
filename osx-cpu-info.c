@@ -321,6 +321,14 @@ char* getCPUTemperature()
   snprintf(str, sizeof(str), "%0.1f °C", SMCGetTemperature(SMC_KEY_CPU_TEMP));
   return str;
 }
+
+char* getBatteryTemperature()
+{
+  char* str;
+  str = ((char*) malloc(16*sizeof(char)));
+  snprintf(str, sizeof(str), "%0.1f °C", SMCGetTemperature(SMC_KEY_BATTERY_TEMP));
+  return str;
+}
 /* 
  * TODO:  Create an one line option
  * TODO:  Create a Makefile
