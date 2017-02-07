@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
         break;
       case 'h':
         batteryHealthFlag = 1;
+        strncat(infoString, getBatteryHealth(), strlen(getBatteryHealth()));
         break;
       case 'y':
         batteryCycleCountFlag = 1;

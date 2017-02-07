@@ -329,12 +329,12 @@ char* getBatteryTemperature()
   snprintf(str, sizeof(str), "%0.1f °C", SMCGetTemperature(SMC_KEY_BATTERY_TEMP));
   return str;
 }
+
 /* 
- * TODO:  Create an one line option
  * TODO:  Create a Makefile
  * TODO:  Write more info about compile process
- * TODO:  Write a XCode project for this program
  * FIXME: Fix all warnings
+ * FIXME: Instead of concatenating all results on infoString variable the program should have an array of strings and "join" them in the end
  */
 //int main(int argc, char *argv[])
 //{
