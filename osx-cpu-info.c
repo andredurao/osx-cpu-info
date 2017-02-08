@@ -330,6 +330,13 @@ char* getBatteryTemperature()
   return str;
 }
 
+char* getBatteryCyclesCount()
+{
+  char* str;
+  str = ((char*) malloc(16*sizeof(char)));
+  snprintf(str, sizeof(str), "%d", getDesignCycleCount());
+  return str;
+}
 /* 
  * TODO:  Create a Makefile
  * TODO:  Write more info about compile process
