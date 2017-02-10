@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
         batteryCycleCountFlag = 1;
         break;
       case 't':
+        strncat(infoString, getBatteryCyclesCount(), strlen(getBatteryTimeRemaining()));
         batteryTimeRemainingFlag = 1;
         break;
       case 'p':

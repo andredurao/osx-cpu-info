@@ -337,6 +337,14 @@ char* getBatteryCyclesCount()
   snprintf(str, sizeof(str), "%d", getDesignCycleCount());
   return str;
 }
+
+char* getBatteryTimeRemaining()
+{
+  char* str;
+  str = ((char*) malloc(16*sizeof(char)));
+  snprintf(str, sizeof(str), "%0.0f", IOPSGetTimeRemainingEstimate());
+  return str;
+}
 /* 
  * TODO:  Create a Makefile
  * TODO:  Write more info about compile process
@@ -362,5 +370,6 @@ char* getBatteryCyclesCount()
 //    printf ("Charge\t%i\t%%\n", getBatteryCharge());
 //
 //    return 0;
+//    check this thread: http://stackoverflow.com/questions/7652293/how-do-i-dynamically-allocate-an-array-of-strings-in-c
 //}
 
