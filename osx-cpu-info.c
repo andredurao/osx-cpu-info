@@ -345,6 +345,14 @@ char* getBatteryTimeRemaining()
   snprintf(str, sizeof(str), "%0.0f", IOPSGetTimeRemainingEstimate());
   return str;
 }
+
+char* getBatteryChargePercentage()
+{
+  char* str;
+  str = ((char*) malloc(16*sizeof(char)));
+  snprintf(str, sizeof(str), "%i", getBatteryCharge());
+  return str;
+}
 /* 
  * TODO:  Create a Makefile
  * TODO:  Write more info about compile process

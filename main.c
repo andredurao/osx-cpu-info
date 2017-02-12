@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
         batteryTimeRemainingFlag = 1;
         break;
       case 'p':
+        strncat(infoString, getBatteryChargePercentage(), strlen(getBatteryChargePercentage()));
         batteryChargeFlag = 1;
         break;
       case 'f':

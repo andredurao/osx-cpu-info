@@ -105,3 +105,4 @@ CFDictionaryRef IOPSGetPowerSourceDescription(CFTypeRef blob, CFTypeRef ps);
 char* getCPUTemperature();
 char* getBatteryTemperature();
 char* getBatteryCyclesCount();
+char* getBatteryChargePercentage();
