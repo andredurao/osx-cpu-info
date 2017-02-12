@@ -353,6 +353,15 @@ char* getBatteryChargePercentage()
   snprintf(str, sizeof(str), "%i", getBatteryCharge());
   return str;
 }
+
+char* getFanSpeed(int fanNumber)
+{
+  char* str;
+  str = ((char*) malloc(16*sizeof(char)));
+  snprintf(str, sizeof(str), "%0.1f", SMCGetFanSpeed(fanNumber));
+  return str;
+}
+
 /* 
  * TODO:  Create a Makefile
  * TODO:  Write more info about compile process

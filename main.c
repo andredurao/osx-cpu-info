@@ -13,6 +13,7 @@ int batteryTimeRemainingFlag = 0;
 int batteryChargeFlag        = 0;
 int fanSpeedFlag             = 0;
 char *fanSpeedValue          = NULL;
+int fanNumber                = 0;
 char *infoString;
 float bat_temp;
 
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
     return(0);
   }
 
-  while ((c = getopt (argc, argv, "cbhytp")) != -1)
+  while ((c = getopt (argc, argv, "cbhytpf:")) != -1)
     switch (c)
     {
       case 'c':
@@ -79,6 +80,13 @@ int main(int argc, char *argv[])
         batteryChargeFlag = 1;
         break;
       case 'f':
+        fanNumber = atoi(optarg);
+        if(fanNumber >= 0 && fanNumber < SMCGetFanNumber(SMC_KEY_FAN_NUM)){
+          strncat(infoString, getFanSpeed(fanNumber), strlen(getFanSpeed(fanNumber)));
+        } else {
+          printf("\nError: Fan %d not found\n", fanNumber);
+          exit(1);
+        }
         fanSpeedFlag = 1;
         break;
       case '?':

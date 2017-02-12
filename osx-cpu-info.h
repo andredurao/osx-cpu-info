@@ -106,3 +106,4 @@ char* getCPUTemperature();
 char* getBatteryTemperature();
 char* getBatteryCyclesCount();
 char* getBatteryChargePercentage();
+char* getFanSpeed(int);
